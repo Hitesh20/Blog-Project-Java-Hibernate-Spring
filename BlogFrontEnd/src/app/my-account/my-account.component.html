@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<div class="container-fluid bg-light" style="padding-bottom: 100px;">
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="mt-4 mb-4" style="padding-right: 60px; padding-left: 60px;">
+        <div class="card" style="width: 400px;">
+          <div class="card-header bg-white">
+            <div style="margin-left: 100px;">
+              <h2 style="margin-left: -50px;" class="font1"><i class="fa p-1">&#xf2c1;&nbsp;</i>{{user.name}}</h2>
+              <small class="text-center text-muted">{{user.role}}</small>
+            </div>
+          </div>
+          <div class="card-body">
+            <b><i class="fa p-1">&#xf199;&nbsp;</i>Email</b><br>
+            <span class="ml-3">{{user.email}}</span><br><br>
+            <b><i class="fa p-1">&#xf2b9;&nbsp;</i>Contact</b><br>
+            <i class="fas fa-phone-alt"></i><span class="ml-3">{{user.mobileNo}}</span><br><br>
+            <b><i class="fa p-1">&#xf228;&nbsp;</i>Gender</b><br>
+            <i class="fas fa-book-dead"></i><span class="ml-3">{{user.gender}}</span><br><br>
+            <b><i class="fa p-1">&#xf044;&nbsp;</i>Number of Posts</b><br>
+            <i class="fas fa-book-dead"></i><span class="ml-3">{{blogs.length}}</span><br><br>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-info w-75" style="margin-left: 78px;" (click)="goToEditProfile()"><i class="fa p-1">&#xf085;&nbsp;</i>Edit Profile</button>
+    </div>
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-12 mt-3">
+
+          <div class="bg-white m-2 p-3 mb-4" *ngFor="let blog of blogs.reverse()">
+            <div class="d-flex">
+              <div>
+                <div class="font-weight-bold" style="font-size: 20px;">{{blog.title}}</div>
+                <small class="font-weight text-black-50">Author:-{{blog.userId.name}}</small>
+              </div>
+              <div class="ml-auto">
+                <div class="dropdown dropleft float-right">
+                  <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                    Options
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" (click)="editBlog(blog.postId)">Edit</a>
+                    <!--<a class="dropdown-item" href="#" *ngIf="!blog.isPrivate">Make Private</a>
+                    <a class="dropdown-item" href="#" *ngIf="blog.isPrivate">Make Public</a>-->
+                    <a class="dropdown-item" (click)="deleteBlog(blog.postId)">Delete</a>
+                  </div>
+                </div>
+                <div>
+                  <small class="text-dark"><i class="fa p-1">&#xf0ac;&nbsp;</i>{{blog.date | date: 'shortDate'}}</small>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <p class="pb-3">{{blog.content}}</p>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

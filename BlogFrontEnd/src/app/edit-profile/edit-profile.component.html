@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<div class="container bg-light">
+
+  <div class="row bg-light mt-5">
+    <div class="col-sm-4 mt-4 bg-light">
+      <div class="card">
+        <div class="card-header bg-white">
+          <div style="margin-left: 100px;">
+            <h2 style="margin-left: -30px;" class="font1"><i class="fa p-1">&#xf2c1;&nbsp;</i>{{name}}</h2>
+            <small class="text-center text-muted">{{role}}</small>
+          </div>
+        </div>
+        <div class="card-body">
+          <b><i class="fa p-1">&#xf199;&nbsp;</i>Email</b><br>
+          <span class="ml-3">{{email}}</span><br><br>
+          <b><i class="fa p-1">&#xf2b9;&nbsp;</i>Contact</b><br>
+          <i class="fas fa-phone-alt"></i><span class="ml-3">{{mobileNo}}</span><br><br>
+          <!--<b><i class="fa p-1">&#xf2bb;&nbsp;</i>Address</b><br>
+          <i class="fas fa-map-marker-alt"></i><div class="ml-3 ">{{address}}</div><br>-->
+          <b><i class="fa p-1">&#xf228;&nbsp;</i>Gender</b><br>
+          <i class="fas fa-book-dead"></i><span class="ml-3">{{gender}}</span><br><br>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7 mt-4 pr-5 pl-5 block bg-light">
+      <!--<div class="bg-light mt-3 block pl-5">-->
+      <h4 class="pt-2">Account Details</h4><hr>
+
+      <form>
+
+        <div class="form-group">
+          <div>
+            <label>Edit Name :</label>
+          </div>
+          <input type="text" class="form-control" id="name" placeholder="{{user.name}}" name="name" value="{{user.name}}" [(ngModel)]="user.name">
+        </div>
+        <div class="form-group">
+          <div>
+            <label>Edit Email :</label>
+          </div>
+          <input type="email" class="form-control" id="uname" placeholder="{{user.email}}" value="{{user.email}}" name="email" [(ngModel)]="user.email">
+        </div>
+        <div class="form-group">
+          <div>
+            <label>Edit Password :</label>
+          </div>
+          <input type="password" class="form-control" id="pwd" placeholder="Edit Password(its not your password)" name="pswd" [(ngModel)]="user.password">
+        </div>
+        <div class="form-group">
+          <div>
+            <label>Edit Mobile Number :</label>
+          </div>
+          <input type="text" class="form-control" id="number" placeholder="{{user.mobileNo}}" name="mob" value="{{user.mobileNo}}" [(ngModel)]="user.mobileNo">
+        </div>
+
+
+        <button type="submit" class="btn btn-info mt-5 mb-5 w-100" (click)="editUser()">Edit Details</button>
+      </form>
+
+    </div>
+    <!--</div>-->
+  </div>
+</div>

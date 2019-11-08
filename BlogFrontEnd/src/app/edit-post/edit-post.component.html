@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="container-fluid mt-5" style="padding-bottom: 100px;">
+
+
+  <h1 class="font1 p-5 text-center text-black-50">Edit Post</h1>
+
+  <!--Form-->
+  <div class="container">
+
+
+    <form action="add-product" class="was-validated">
+
+
+      <div class="form-group">
+        <label class="font-weight-bold" for="title">Edit Post/Blog Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Enter Post/Blog Title" [(ngModel)]="blog.title" name="title" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="font-weight-bold" for="content">Edit Post/Blog Content</label>
+        <textarea class="form-control" id="content" placeholder="Enter Post/Blog content here." name="content" [(ngModel)]="blog.content" required></textarea>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <button type="submit" class="btn btn-info mt-3 mb-3 w-100" (click)="editBlog(blog)">Edit Post/Blog</button>
+
+
+    </form>
+  </div>
+
+</div>

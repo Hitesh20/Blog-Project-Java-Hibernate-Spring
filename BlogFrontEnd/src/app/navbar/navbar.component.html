@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-sm navbar-expand-md navbar-expand-lg sticky-top" style="background-color:#1782FD;">
+  <a class="navbar-brand text-white font-weight-bolder active" href="feed"><i class="fa p-1">&#xf086;</i>thoughtsBook</a>
+
+  <ul class="nav navbar-nav float-sm-right m-auto ml-4">
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" size="50" type="text" placeholder="Search by title, content, owner or date" [(ngModel)]="searchedItem" [ngModelOptions]="{ standalone:true }">
+      <button class="btn btn-secondary text-white" type="submit" (click)="searchOnClick()"><i class="fa">&#xf002;</i>&nbsp;Search</button>
+    </form>
+  </ul>
+
+  <ul class="nav navbar-nav float-sm-right">
+    <li class="nav-item">
+      <a class="nav-link" href="feed"><i class="fa p-1">&#xf015;</i>Home</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="addPost"><i class="fa p-1">&#xf067;&nbsp;</i>New Post</a>
+    </li>
+
+    <li class="nav-item dropdown mr-5">
+      <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><i class="fa p-1">&#xf007;&nbsp;</i>{{currentUser.name}}</a>
+      <div class="dropdown-menu">
+        <a class="nav-link dropdown-item text-dark" href="myAccount"><i class="fa p-1">&#xf0ea;&nbsp;</i>Your Posts</a>
+        <a class="nav-link dropdown-item text-dark" href="editProfile"><i class="fa p-1">&#xf044;&nbsp;</i>Edit Profile</a>
+        <a class="nav-link dropdown-item text-dark" href="logout"><i class="fa p-1">&#xf03b;&nbsp;</i>Logout</a>
+      </div>
+    </li>
+
+
+  </ul>
+</nav>

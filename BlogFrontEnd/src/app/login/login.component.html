@@ -1,0 +1,17 @@
+<form class="is-validated mt-4 pt-3">
+  <div class="form-group">
+    <label>Email Address</label><br>
+    <input type="email" class="form-control" id="uname" placeholder="Your Email Address" name="username" [(ngModel)]="username" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  <div class="form-group">
+    <label>Password</label><br>
+    <input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="password" [(ngModel)]="password" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+
+  <button type="submit" class="btn btn-info mt-5 mb-5 w-100" (click)=checkLogin()>LOG IN</button>
+</form>
+<small>New to thoughtsBook? <a href="home/register">Sign Up here</a></small>
