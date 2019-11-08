@@ -26,7 +26,7 @@ export class MyAccountComponent implements OnInit {
       this.user = data;
       this.role = this.user.role;
     });
-    // this.currentUser = sessionStorage.getItem('username');
+    this.currentUser = sessionStorage.getItem('username');
   }
 
   goToEditProfile() {

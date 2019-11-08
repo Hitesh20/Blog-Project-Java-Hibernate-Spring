@@ -3,16 +3,16 @@
 
   <div class="row">
     <div class="col-sm-4">
-      <div class="bg-white mt-4 mb-4" style="padding-right: 70px; padding-left: 70px;">
-        <h2 class="text-left ml-4 text-black-50 font1 mt-3">Other Features</h2>
+      <div class="bg-white mt-4 mb-4 pb-3" style="padding-right: 70px; padding-left: 70px;">
+        <h2 class="text-left ml-4 text-black-50 font1 pt-4">Other Features</h2>
         <hr>
         <form class="form-inline">
           <input class="form-control mr-sm-1 mt-3 mb-3" size="25" type="text" placeholder="Search for any user" [(ngModel)]="searchedItem" [ngModelOptions]="{ standalone:true }">
           <button class="btn btn-secondary text-white" type="submit" (click)="searchOnClick()"><i class="fa">&#xf002;</i>&nbsp;Search</button>
         </form>
         <a class="btn btn-primary text-white w-100 mb-3"><i class="fa p-1">&#xf0c0;&nbsp;</i>Create Group</a>
-        <a class="btn btn-primary text-white w-100 mb-3">Followers</a>
-        <a class="btn btn-primary text-white w-100 mb-3">Following</a>
+        <a class="btn btn-primary text-white w-100 mb-3" (click)="seeFollowers()">Followers</a>
+        <a class="btn btn-primary text-white w-100 mb-3" (click)="seeFollowing()">Following</a>
       </div>
       <div class="row m-1" >
         <div class="col-sm-12 bg-white mb-2 p-3" *ngFor="let user of searchedUsers" style="padding-right: 70px; padding-left: 70px;">

@@ -64,4 +64,12 @@ export class FeedComponent implements OnInit {
   viewProfile(id) {
     this.router.navigate(['viewProfile', id]);
   }
+
+  seeFollowers() {
+    this.router.navigate(['connections/followers']);
+  }
+
+  seeFollowing() {
+    this.router.navigate(['connections/following']);
+  }
 }

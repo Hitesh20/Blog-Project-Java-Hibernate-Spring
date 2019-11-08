@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container-fluid mt-5 bg-light" style="padding-bottom: 100px;">
+<div class="container-fluid bg-light" style="padding-bottom: 100px;">
 
   <div class="row">
     <div class="col-sm-4">
@@ -23,13 +23,14 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-info w-75" style="margin-left: 78px;"><i class="fa p-1">&#xf234;&nbsp;</i>Follow</button>
-      <!--Active Karna h ye abhi-->
-      <!--<button class="btn btn-info w-75" style="margin-left: 78px;"><i class="fa p-1">&#xf11a;&nbsp;</i>Unfollow</button>-->
+      <button class="btn btn-info w-75" *ngIf="!isFollowing; else elseBlock;" (click)="followUser()" style="margin-left: 78px;"><i class="fa p-1">&#xf234;&nbsp;</i>Follow</button>
+      <ng-template #elseBlock>
+        <button class="btn btn-info w-75" style="margin-left: 78px;" (click)="unfollowUser()"><i class="fa p-1">&#xf11a;&nbsp;</i>Unfollow</button>
+      </ng-template>
     </div>
     <div class="col-sm-8">
       <div class="row">
-        <div class="col-sm-12 mt-3">
+        <div class="col-sm-12 mt-3" *ngIf="isFollowing">
 
           <div class="bg-white m-2 p-3 mb-4" *ngFor="let blog of viewBlogs.reverse()">
             <div class="d-flex">

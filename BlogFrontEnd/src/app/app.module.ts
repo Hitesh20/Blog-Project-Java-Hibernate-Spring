@@ -17,6 +17,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { FollowersComponent } from './followers/followers.component';
+import { FollowingComponent } from './following/following.component';
+import { ConnectionsComponent } from './connections/connections.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
     LogoutComponent,
     EditProfileComponent,
     EditPostComponent,
-    ViewProfileComponent
+    ViewProfileComponent,
+    FollowersComponent,
+    FollowingComponent,
+    ConnectionsComponent
   ],
   imports: [
     BrowserModule,

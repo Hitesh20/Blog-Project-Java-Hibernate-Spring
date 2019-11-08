@@ -11,6 +11,9 @@ import {AuthGuardService} from './auth-guard.service';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {EditPostComponent} from './edit-post/edit-post.component';
 import {ViewProfileComponent} from './view-profile/view-profile.component';
+import {ConnectionsComponent} from './connections/connections.component';
+import {FollowersComponent} from './followers/followers.component';
+import {FollowingComponent} from './following/following.component';
 
 export const MAIN_ROUTES: Routes = [
   { path : '', redirectTo: '/home/login', pathMatch: 'full'},
@@ -28,6 +31,13 @@ export const MAIN_ROUTES: Routes = [
   { path : 'myAccount', component: MyAccountComponent, canActivate: [AuthGuardService] },
   { path : 'editProfile', component: EditProfileComponent, canActivate: [AuthGuardService] },
   { path : 'viewProfile/:userId', component: ViewProfileComponent, canActivate: [AuthGuardService] },
+  { path : 'connections',
+    component: ConnectionsComponent,
+    children: [
+      { path: 'followers', component: FollowersComponent, canActivate: [AuthGuardService] },
+      { path: 'following', component: FollowingComponent, canActivate: [AuthGuardService] }
+    ],
+    canActivate: [AuthGuardService]},
   { path : 'logout', component: LogoutComponent},
   { path : '**', component: PageNotFoundComponent}
 ];

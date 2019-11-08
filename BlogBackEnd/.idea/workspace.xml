@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="867a99bc-0a20-4897-ae0f-0891e131a6aa" name="Default Changelist" comment="" />
+    <list default="true" id="867a99bc-0a20-4897-ae0f-0891e131a6aa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogFrontEnd/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../BlogFrontEnd/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogFrontEnd/src/app/app.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../BlogFrontEnd/src/app/app.route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogFrontEnd/src/app/feed/feed.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../BlogFrontEnd/src/app/feed/feed.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogFrontEnd/src/app/feed/feed.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../BlogFrontEnd/src/app/feed/feed.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogFrontEnd/src/app/my-account/my-account.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../BlogFrontEnd/src/app/my-account/my-account.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogFrontEnd/src/app/my-account/my-account.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../BlogFrontEnd/src/app/my-account/my-account.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogFrontEnd/src/app/view-profile/view-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../BlogFrontEnd/src/app/view-profile/view-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogFrontEnd/src/app/view-profile/view-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../BlogFrontEnd/src/app/view-profile/view-profile.component.ts" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/Blog/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,10 +25,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/controller/BlogController.java">
+        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/repository/FollowingRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="53" column="46" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+            <state relative-caret-position="304">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -27,34 +37,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/controller/UserController.java">
+        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/repository/FollowersRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/service/BlogService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="76" column="45" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
+            <state relative-caret-position="255">
+              <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,42 +49,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/service/UserService.java">
+        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/controller/FollowFollowingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="62" column="1" lean-forward="true" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
+            <state relative-caret-position="485">
+              <caret line="61" column="39" lean-forward="true" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
               <folding>
-                <element signature="e#1957#1958#0" expanded="true" />
-                <element signature="e#2012#2013#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/Blog.java">
+        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/service/FollowFollowingService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="78" column="52" lean-forward="true" selection-start-line="78" selection-start-column="52" selection-end-line="78" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/Followers.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1117#1118#0" expanded="true" />
-                <element signature="e#1149#1150#0" expanded="true" />
-                <element signature="e#1197#1198#0" expanded="true" />
-                <element signature="e#1233#1234#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/repository/BlogRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -112,6 +90,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -129,20 +110,28 @@
         <option value="$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/service/UserService.java" />
         <option value="$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/controller/BlogController.java" />
         <option value="$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/service/BlogService.java" />
+        <option value="$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/Following.java" />
+        <option value="$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/Followers.java" />
+        <option value="$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/repository/FollowersRepository.java" />
+        <option value="$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/controller/FollowFollowingController.java" />
+        <option value="$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/service/FollowFollowingService.java" />
+        <option value="$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/repository/FollowingRepository.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1615" />
     <option name="height" value="880" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -248,7 +237,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -256,6 +244,7 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../BlogFrontEnd" />
@@ -314,18 +303,19 @@
       <workItem from="1573128380982" duration="31000" />
       <workItem from="1573128457825" duration="10000" />
       <workItem from="1573139997419" duration="10578000" />
-      <workItem from="1573186161635" duration="2245000" />
+      <workItem from="1573186161635" duration="2249000" />
+      <workItem from="1573219088577" duration="12831000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38555000" />
+    <option name="totallyTimeSpent" value="51390000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23489933" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23825504" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -335,7 +325,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -388,16 +378,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/config/SecurityConfigurations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="647">
@@ -408,12 +388,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/User.java">
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/Blog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+        <state relative-caret-position="221">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1149#1150#0" expanded="true" />
+            <element signature="e#1197#1198#0" expanded="true" />
+            <element signature="e#1233#1234#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -428,24 +412,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/Blog.java">
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="38" />
+        <state relative-caret-position="281">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1149#1150#0" expanded="true" />
-            <element signature="e#1197#1198#0" expanded="true" />
-            <element signature="e#1233#1234#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
+            <element signature="e#2012#2013#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/controller/BlogController.java">
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/repository/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="53" column="46" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+        <state relative-caret-position="238">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -454,7 +435,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/service/BlogService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="935">
           <caret line="76" column="45" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -464,21 +445,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+        <state relative-caret-position="21">
+          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/service/UserService.java">
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="62" column="1" lean-forward="true" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
+        <state relative-caret-position="-68">
+          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
           <folding>
-            <element signature="e#1957#1958#0" expanded="true" />
-            <element signature="e#2012#2013#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/controller/BlogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="45" column="36" lean-forward="true" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/Following.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+          <folding>
+            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#568#569#0" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#770#771#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/dao/Followers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/repository/FollowersRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/service/FollowFollowingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="78" column="52" lean-forward="true" selection-start-line="78" selection-start-column="52" selection-end-line="78" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/repository/FollowingRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog/src/main/java/com/blogProject/Blog/controller/FollowFollowingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="61" column="39" lean-forward="true" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

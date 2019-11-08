@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar (childEvent)="this.blogs=$event"></app-navbar>
 <div class="container-fluid bg-light" style="padding-bottom: 100px;">
 
   <div class="row">
@@ -36,7 +36,7 @@
                 <small class="font-weight text-black-50">Author:-{{blog.userId.name}}</small>
               </div>
               <div class="ml-auto">
-                <div class="dropdown dropleft float-right">
+                <div class="dropdown dropleft float-right" *ngIf="currentUser == blog.userId.email">
                   <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
                     Options
                   </button>
