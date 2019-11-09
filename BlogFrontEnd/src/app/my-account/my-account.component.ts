@@ -43,4 +43,12 @@ export class MyAccountComponent implements OnInit {
   editBlog(id) {
     this.router.navigate(['editPost', id]);
   }
+
+  seeFollowers() {
+    this.router.navigate(['connections/followers']);
+  }
+
+  seeFollowing() {
+    this.router.navigate(['connections/following']);
+  }
 }

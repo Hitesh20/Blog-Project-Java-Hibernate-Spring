@@ -40,14 +40,15 @@
       <div class="row">
         <div class="col-sm-12 mt-3">
 
-            <div class="bg-white m-2 p-3 mb-4" *ngFor="let blog of blogs.slice().reverse()">
+            <div *ngFor="let blog of blogs.slice().reverse()">
+              <div class="bg-white m-2 p-3 mb-4" *ngIf="blog.userId.userId == user.userId || checkFollowing(blog.userId.userId)">
               <div class="d-flex">
               <div>
               <div class="font-weight-bold" style="font-size: 20px;">{{blog.title}}</div>
-                <small class="font-weight text-black-50">Author:-{{blog.userId.name}}</small>
+                <small class="font-weight text-black-50">Author:-<a class="text-primary" data-toggle="tooltip" title="View User" (click)="viewProfile(blog.userId.userId)">{{blog.userId.name}}</a></small>
               </div>
               <div class="ml-auto">
-                <div class="dropdown dropleft float-right" *ngIf="currentUser == blog.userId.email" >
+                <div class="dropdown dropleft float-right" *ngIf="currentUser == blog.userId.email || role == 'admin'" >
                   <button type="button" class="btn btn-primary btn-sm dropdown-toggle mr-3" data-toggle="dropdown">
                     Options
                   </button>
@@ -65,7 +66,7 @@
               </div>
               <hr>
               <p class="pb-3">{{blog.content}}</p>
-
+              </div>
           </div>
         </div>
 

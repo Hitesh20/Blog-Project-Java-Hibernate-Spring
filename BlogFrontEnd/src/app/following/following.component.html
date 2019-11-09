@@ -1,3 +1,20 @@
-<div *ngFor="let following of followings">
-  {{following.id}}
+
+<h1 class="text-center text-black-50">Following</h1>
+
+<div class="row m-1" >
+  <div class="col-sm-12 bg-white mb-2 p-3" *ngFor="let follow of followings" style="padding-right: 70px; padding-left: 70px;">
+    <div class="d-flex">
+      <div>
+        <div>
+          <b><i class="fa p-1 mr-3">&#xf007;&nbsp;</i>{{follow.following.name}}</b>
+        </div>
+        <small>{{follow.following.email}}</small>
+      </div>
+      <div class="ml-auto">
+        <button class="btn btn-outline-primary btn-sm" (click)="viewProfile(follow.following.userId)">View Profile</button>
+      </div>
+    </div>
+
+
+  </div>
 </div>

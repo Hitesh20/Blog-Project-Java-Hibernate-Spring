@@ -4,6 +4,7 @@ import {BlogService} from '../blog.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {AuthenticationService} from '../authentication.service';
 import {RegistrationService} from '../registration.service';
+import {FollowerFollowingService} from '../follower-following.service';
 
 @Component({
   selector: 'app-feed',
@@ -12,10 +13,11 @@ import {RegistrationService} from '../registration.service';
 })
 export class FeedComponent implements OnInit {
   private searchedUsers;
+  private followings;
 
   constructor(private blogService: BlogService, private router: Router,
               private route: ActivatedRoute, private loginService: AuthenticationService,
-              private registrationService: RegistrationService) { }
+              private registrationService: RegistrationService, private ffService: FollowerFollowingService) { }
 
   private blogs;
   private role;
@@ -29,6 +31,10 @@ export class FeedComponent implements OnInit {
       this.role = this.user.role;
     });
     this.currentUser = sessionStorage.getItem('username');
+    this.ffService.getFollowings().subscribe(data => {
+      console.log(data);
+      this.followings = data;
+    });
   }
 
   deleteBlog(id) {
@@ -72,4 +78,16 @@ export class FeedComponent implements OnInit {
   seeFollowing() {
     this.router.navigate(['connections/following']);
   }
+
+  checkFollowing(id) {
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < this.followings.length; i++) {
+      // tslint:disable-next-line:triple-equals
+      if (id == this.followings[i].following.userId) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 }

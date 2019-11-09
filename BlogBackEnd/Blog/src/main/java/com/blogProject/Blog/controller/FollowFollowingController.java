@@ -3,6 +3,7 @@ package com.blogProject.Blog.controller;
 
 import com.blogProject.Blog.dao.Blog;
 import com.blogProject.Blog.dao.Followers;
+import com.blogProject.Blog.dao.Following;
 import com.blogProject.Blog.service.FollowFollowingService;
 import com.blogProject.Blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +58,7 @@ public class FollowFollowingController {
     }
 
     @GetMapping("/getFollowings")
-    public List<Followers> getFollowings(Principal principal)
+    public List<Following> getFollowings(Principal principal)
     {
         return ffService.getFollowingOfThisAccount(userService.getUserId(principal));
     }

@@ -15,5 +15,5 @@ public interface FollowingRepository extends JpaRepository<Following, Long> {
 
     Object findAllByCurrentUserAndFollowing(User currentUser, User following);
 
-    List<Followers> findAllByCurrentUser(User currentUser);
+    List<Following> findAllByCurrentUser(User currentUser);
 }

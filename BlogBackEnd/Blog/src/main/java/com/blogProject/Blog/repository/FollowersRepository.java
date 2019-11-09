@@ -14,4 +14,5 @@ public interface FollowersRepository extends JpaRepository<Followers, Long> {
     Object findAllByCurrentUserAndFollower(User currentUser, User follower);
 
     List<Followers> findAllByCurrentUser(User currentUser);
+
 }

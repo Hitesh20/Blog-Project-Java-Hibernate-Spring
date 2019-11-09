@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {AuthenticationService} from '../authentication.service';
 import {RegistrationService} from '../registration.service';
 import {BlogService} from '../blog.service';
@@ -17,8 +17,10 @@ export class ViewProfileComponent implements OnInit {
   private viewUser;
   private viewBlogs;
   private isFollowing = false;
+  private user;
+  private role;
   constructor(private route: ActivatedRoute, private registrationService: RegistrationService,
-              private blogService: BlogService, private ffService: FollowerFollowingService) { }
+              private blogService: BlogService, private ffService: FollowerFollowingService, private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -35,6 +37,10 @@ export class ViewProfileComponent implements OnInit {
       }
       console.log(data);
     });
+    this.registrationService.getUser().subscribe( data => {
+      this.user = data;
+      this.role = this.user.role;
+    });
   }
 
   followUser() {
@@ -47,5 +53,16 @@ export class ViewProfileComponent implements OnInit {
     this.ffService.unfollowThisUser(this.userId).subscribe(data => {
       this.isFollowing = false;
     });
+  }
+
+  deleteBlog(id) {
+    this.blogService.deleteParticularBlog(id).subscribe(data => {
+      alert('Blog deleted successfully.');
+      this.router.navigate(['feed']);
+    });
+  }
+
+  editBlog(id) {
+    this.router.navigate(['editPost', id]);
   }
 }

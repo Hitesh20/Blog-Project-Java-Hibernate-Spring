@@ -1,17 +1,84 @@
 <app-navbar></app-navbar>
+<div class="container-fluid bg-light" style="padding-bottom: 100px;">
 
-<div class="container-fluid bg-light">
-  <h1 class="text-black-50 pt-3 mb-3 text-center pb-3">Your Connections</h1>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="bg-white mt-4 mb-4 pb-3" style="padding-right: 70px; padding-left: 70px;">
+        <h2 class="text-left ml-4 text-black-50 font1 pt-4">Other Features</h2>
+        <hr>
+        <form class="form-inline">
+          <input class="form-control mr-sm-1 mt-3 mb-3" size="25" type="text" placeholder="Search for any user" [(ngModel)]="searchedItem" [ngModelOptions]="{ standalone:true }">
+          <button class="btn btn-secondary text-white" type="submit" (click)="searchOnClick()"><i class="fa">&#xf002;</i>&nbsp;Search</button>
+        </form>
+        <a class="btn btn-primary text-white w-100 mb-3"><i class="fa p-1">&#xf0c0;&nbsp;</i>Create Group</a>
+        <a class="btn btn-primary text-white w-100 mb-3" (click)="seeFollowers()">Followers</a>
+        <a class="btn btn-primary text-white w-100 mb-3" (click)="seeFollowing()">Following</a>
+      </div>
+      <div class="row m-1" >
+        <div class="col-sm-12 bg-white mb-2 p-3" *ngFor="let user of searchedUsers" style="padding-right: 70px; padding-left: 70px;">
+          <div class="d-flex">
+            <div>
+              <div>
+                <b><i class="fa p-1 mr-3">&#xf007;&nbsp;</i>{{user.name}}</b>
+              </div>
+              <small>{{user.email}}</small>
+            </div>
+            <div class="ml-auto">
+              <button class="btn btn-outline-primary btn-sm" (click)="viewProfile(user.userId)">View Profile</button>
+            </div>
+          </div>
 
-  <div class="container bg-white pb-5 pt-3">
 
-    <div style="margin-left: 270px;">
-      <a class="btn btn-secondary w-25 mr-3 ml-5" href="connections/followers">Followers</a>
-      <a class="btn btn-secondary w-25 ml-3 mr-5" href="connections/following">Following</a>
+        </div>
+      </div>
+
+
+
+
     </div>
-    <div style="margin-left: 270px;">
-      <router-outlet></router-outlet>
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-12 mt-3">
+
+          <!--<div class="bg-white m-2 p-3 mb-4" *ngFor="let blog of blogs.slice().reverse()">
+            <div class="d-flex">
+              <div>
+                <div class="font-weight-bold" style="font-size: 20px;">{{blog.title}}</div>
+                <small class="font-weight text-black-50">Author:-{{blog.userId.name}}</small>
+              </div>
+              <div class="ml-auto">
+                <div class="dropdown dropleft float-right" *ngIf="currentUser == blog.userId.email" >
+                  <button type="button" class="btn btn-primary btn-sm dropdown-toggle mr-3" data-toggle="dropdown">
+                    Options
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" (click)="editBlog(blog.postId)">Edit</a>
+                    &lt;!&ndash;<a class="dropdown-item" (click)="makePrivate(blog.postId)" *ngIf="blog.isPrivate==false">Make Private</a>
+                    <a class="dropdown-item" href="#" *ngIf="blog.isPrivate==true">Make Public</a>&ndash;&gt;
+                    <a class="dropdown-item" (click)="deleteBlog(blog.postId)">Delete</a>
+                  </div>
+                </div>
+                <div>
+                  <small class="text-dark"><i class="fa p-1">&#xf0ac;&nbsp;</i>{{blog.date | date: 'shortDate'}}</small>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <p class="pb-3">{{blog.content}}</p>
+
+          </div>-->
+          <div class="bg-white m-2 p-3 mb-4">
+
+            <router-outlet></router-outlet>
+
+
+          </div>
+        </div>
+
+      </div>
     </div>
+
+
   </div>
-
 </div>
+

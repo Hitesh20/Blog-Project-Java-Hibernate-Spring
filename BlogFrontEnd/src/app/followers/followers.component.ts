@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FollowerFollowingService} from '../follower-following.service';
+import {Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-followers',
@@ -8,11 +9,17 @@ import {FollowerFollowingService} from '../follower-following.service';
 })
 export class FollowersComponent implements OnInit {
 
-  constructor(private ffService: FollowerFollowingService) { }
+  constructor(private ffService: FollowerFollowingService, private router: Router) { }
 
   private followers;
   ngOnInit() {
-    this.ffService.getFollowers().subscribe(data => this.followers = data);
+    this.ffService.getFollowers().subscribe(data => {
+      console.log(data);
+      this.followers = data;
+    });
   }
 
+  viewProfile(id) {
+    this.router.navigate(['viewProfile', id]);
+  }
 }

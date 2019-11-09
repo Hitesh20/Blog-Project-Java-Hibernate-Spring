@@ -1,7 +1,6 @@
 package com.blogProject.Blog.service;
 
 
-import com.blogProject.Blog.controller.UserController;
 import com.blogProject.Blog.dao.Followers;
 import com.blogProject.Blog.dao.Following;
 import com.blogProject.Blog.dao.User;
@@ -71,10 +70,11 @@ public class FollowFollowingService {
 
     public List<Followers> getFollowersOfThisAccount(Long userId) {
         User currentUser = userRepository.findByUserId(userId);
+        System.out.println(followersRepository.findAllByCurrentUser(currentUser));
         return followersRepository.findAllByCurrentUser(currentUser);
     }
 
-    public List<Followers> getFollowingOfThisAccount(Long userId) {
+    public List<Following> getFollowingOfThisAccount(Long userId) {
         User currentUser = userRepository.findByUserId(userId);
         return followingRepository.findAllByCurrentUser(currentUser);
     }
