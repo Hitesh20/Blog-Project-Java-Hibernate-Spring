@@ -1,5 +1,4 @@
 package com.blogProject.Blog.dao;
-
 import javax.persistence.*;
 
 @Entity

@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+<div class="container-fluid bg-light" style="padding-bottom: 100px;">
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="bg-white mt-4 mb-4 pb-3" style="padding-right: 70px; padding-left: 70px;">
+        <h2 class="text-left ml-4 text-black-50 font1 pt-4">Other Features</h2>
+        <hr>
+        <form class="form-inline">
+          <input class="form-control mr-sm-1 mt-3 mb-3" size="25" type="text" placeholder="Search for any user" [(ngModel)]="searchedItem" [ngModelOptions]="{ standalone:true }">
+          <button class="btn btn-secondary text-white" type="submit" (click)="searchOnClick()"><i class="fa">&#xf002;</i>&nbsp;Search</button>
+        </form>
+        <a class="btn btn-primary text-white w-100 mb-3"><i class="fa p-1">&#xf0c0;&nbsp;</i>Create Group</a>
+        <a class="btn btn-primary text-white w-100 mb-3" (click)="seeFollowers()">Followers</a>
+        <a class="btn btn-primary text-white w-100 mb-3" (click)="seeFollowing()">Following</a>
+      </div>
+      <div class="row m-1" >
+        <div class="col-sm-12 bg-white mb-2 p-3" *ngFor="let user of searchedUsers" style="padding-right: 70px; padding-left: 70px;">
+          <div class="d-flex">
+            <div>
+              <div>
+                <b><i class="fa p-1 mr-3">&#xf007;&nbsp;</i>{{user.name}}</b>
+              </div>
+              <small>{{user.email}}</small>
+            </div>
+            <div class="ml-auto">
+              <button class="btn btn-outline-primary btn-sm" (click)="viewProfile(user.userId)">View Profile</button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <div class="col-sm-8 mt-3">
+
+            <div class="bg-white m-2 p-3 mb-4">
+              <div class="d-flex">
+                <div>
+                  <div class="font-weight-bold" style="font-size: 20px;">{{blog.title}}</div>
+                  <small class="font-weight text-black-50">Author:-<a class="text-primary" data-toggle="tooltip" title="View User" (click)="viewProfile(blog.userId.userId)">{{blog.userId.name}}</a></small>
+                </div>
+                <div class="ml-auto">
+                  <div class="dropdown dropleft float-right">
+                    <!--*ngIf="currentUsername == blog.userId.email || role == 'admin'"-->
+                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle mr-3" data-toggle="dropdown">
+                      Options
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" (click)="editBlog(blog.postId)">Edit</a>
+                      <!--<a class="dropdown-item" (click)="makePrivate(blog.postId)" *ngIf="blog.isPrivate==false">Make Private</a>
+                      <a class="dropdown-item" href="#" *ngIf="blog.isPrivate==true">Make Public</a>-->
+                      <a class="dropdown-item" (click)="deleteBlog(blog.postId)">Delete</a>
+                    </div>
+                  </div>
+                  <div>
+                    <small class="text-dark"><i class="fa p-1">&#xf0ac;&nbsp;</i>{{blog.date | date: 'shortDate'}}</small>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <p class="pb-3">{{blog.content}}</p>
+              <hr>
+              <div class="mt-2 d-flex">
+                <div>
+                  <textarea class="bg-light" cols="110" id="comment" name="comment" placeholder="Post comment here." [(ngModel)]="userComment.comment"></textarea>
+                </div>
+                <div class="ml-auto">
+                  <button class="btn btn-secondary" (click)="postComment(userComment.comment, blog)">Post</button>
+                </div>
+              </div>
+            </div>
+
+      <div class="row">
+
+        <div class="col-sm-12">
+
+          <div *ngFor="let comment of allComments.slice().reverse()" class="p-3 m-2 bg-white">
+            <div>
+              <b data-toggle="tooltip" title="View User" (click)="viewProfile(comment.user.userId)">
+                <i class="fa p-1 mr-3">&#xf007;&nbsp;</i>
+                {{comment.user.name}}
+              </b>
+            </div>
+            <small>{{comment.user.email}}</small>
+            <div class="p-3 m-2 bg-light">
+              {{comment.comment}}
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>
+

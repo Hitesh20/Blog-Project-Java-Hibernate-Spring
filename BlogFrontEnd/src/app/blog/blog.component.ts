@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {Blog} from '../Blog';
 import {BlogService} from '../blog.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {AuthenticationService} from '../authentication.service';
 import {RegistrationService} from '../registration.service';
 import {FollowerFollowingService} from '../follower-following.service';
-import {User} from '../User';
 import {CommentService} from '../comment.service';
+import {User} from '../User';
 import {UserComment} from '../UserComment';
+import {Blog} from '../Blog';
 
 @Component({
-  selector: 'app-feed',
-  templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.scss']
 })
-
-
-export class FeedComponent implements OnInit {
+export class BlogComponent implements OnInit {
   // tslint:disable-next-line:new-parens
   private userComment: UserComment = new class implements UserComment {
     id: number;
@@ -29,31 +27,46 @@ export class FeedComponent implements OnInit {
               private route: ActivatedRoute, private loginService: AuthenticationService,
               private registrationService: RegistrationService, private ffService: FollowerFollowingService,
               private commentService: CommentService) { }
+
+  private blogId;
+  private blog;
   private searchedUsers;
-  private followings;
-
-  private blogs;
-  private role;
-  private user;
-  private currentUser;
   private searchedItem: string;
-
+  private user;
+  private role;
+  private currentUsername;
+  private followings;
+  private uId;
+  private viewUser;
+  private viewBlogs;
+  private isFollowing = false;
+  private allComments;
   ngOnInit() {
-    this.blogService.getAllBlogs().subscribe(data => this.blogs = data);
-    this.registrationService.getUser().subscribe( data => {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      // tslint:disable-next-line:radix
+      const id = parseInt(params.get('id'));
+      this.blogId = id;
+    });
+    this.blogService.getThisBlog(this.blogId).subscribe(data => {
+      this.blog = data;
+    });
+    this.registrationService.getUser().subscribe(data => {
       this.user = data;
       this.role = this.user.role;
     });
-    this.currentUser = sessionStorage.getItem('username');
-    this.ffService.getFollowings().subscribe(data => {
-      console.log(data);
-      this.followings = data;
+    this.currentUsername = sessionStorage.getItem('username');
+    this.registrationService.viewUser(this.blogId).subscribe(data => {
+      this.viewUser = data;
+    });
+    this.commentService.getAllComments(this.blogId).subscribe(data => {
+      this.allComments = data;
+      console.log(this.allComments);
     });
   }
 
   deleteBlog(id) {
     this.blogService.deleteParticularBlog(id).subscribe(data => {
-      this.blogs = data;
+      this.blog = data;
       alert('Blog deleted successfully.');
     });
   }
@@ -64,7 +77,7 @@ export class FeedComponent implements OnInit {
 
   makePrivate(id) {
     this.blogService.makeBlogPrivate(id).subscribe(data => {
-      this.blogs = data;
+      this.blog = data;
       alert('Blog made private.');
     });
   }
@@ -93,18 +106,6 @@ export class FeedComponent implements OnInit {
     this.router.navigate(['connections/following']);
   }
 
-  checkFollowing(id) {
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.followings.length; i++) {
-      // tslint:disable-next-line:triple-equals
-      if (id == this.followings[i].following.userId) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-
   postComment(commentt, blog) {
     console.log(commentt);
     // tslint:disable-next-line:triple-equals
@@ -115,7 +116,8 @@ export class FeedComponent implements OnInit {
       console.log(this.userComment);
       this.commentService.addComment(this.userComment).subscribe(data => {
         alert('New Comment Added Successfully');
-        this.router.navigate(['viewPost', blog.postId]);
+        // this.router.navigate(['viewPost', this.blogId]);
+        window.location.reload();
       });
     } else {
       alert('Please add a valid comment.');
@@ -123,7 +125,18 @@ export class FeedComponent implements OnInit {
 
   }
 
+  checkFollowing(id) {
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < this.followings.length; i++) {
+      // tslint:disable-next-line:triple-equals
+      if (id == this.followings[i].following.userId) {
+        return true;
+      }
+    }
+    return false;
+  }
   viewPost(postId) {
     this.router.navigate(['viewPost', postId]);
   }
+
 }

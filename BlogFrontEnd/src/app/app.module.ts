@@ -20,6 +20,7 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { FollowersComponent } from './followers/followers.component';
 import { FollowingComponent } from './following/following.component';
 import { ConnectionsComponent } from './connections/connections.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ConnectionsComponent } from './connections/connections.component';
     ViewProfileComponent,
     FollowersComponent,
     FollowingComponent,
-    ConnectionsComponent
+    ConnectionsComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

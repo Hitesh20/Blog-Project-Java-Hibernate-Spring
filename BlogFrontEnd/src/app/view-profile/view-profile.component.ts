@@ -5,6 +5,9 @@ import {RegistrationService} from '../registration.service';
 import {BlogService} from '../blog.service';
 import {FollowerFollowingService} from '../follower-following.service';
 import {Blog} from '../Blog';
+import {UserComment} from '../UserComment';
+import {User} from '../User';
+import {CommentService} from '../comment.service';
 
 @Component({
   selector: 'app-view-profile',
@@ -12,6 +15,14 @@ import {Blog} from '../Blog';
   styleUrls: ['./view-profile.component.scss']
 })
 export class ViewProfileComponent implements OnInit {
+  // tslint:disable-next-line:new-parens
+  private userComment: UserComment = new class implements UserComment {
+    id: number;
+    user: User;
+    blog: Blog;
+    comment: string;
+    date: Date;
+  };
 
   private userId;
   private viewUser;
@@ -20,7 +31,8 @@ export class ViewProfileComponent implements OnInit {
   private user;
   private role;
   constructor(private route: ActivatedRoute, private registrationService: RegistrationService,
-              private blogService: BlogService, private ffService: FollowerFollowingService, private router: Router) { }
+              private blogService: BlogService, private ffService: FollowerFollowingService, private router: Router,
+              private commentService: CommentService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -64,5 +76,27 @@ export class ViewProfileComponent implements OnInit {
 
   editBlog(id) {
     this.router.navigate(['editPost', id]);
+  }
+
+  postComment(commentt, blog) {
+    console.log(commentt);
+    // tslint:disable-next-line:triple-equals
+    if (commentt != null && commentt != '') {
+      this.userComment.comment = commentt;
+      this.userComment.date = new Date();
+      this.userComment.blog = blog;
+      console.log(this.userComment);
+      this.commentService.addComment(this.userComment).subscribe(data => {
+        alert('New Comment Added Successfully');
+        this.router.navigate(['viewPost', blog.postId]);
+      });
+    } else {
+      alert('Please add a valid comment.');
+    }
+
+  }
+
+  viewPost(postId) {
+    this.router.navigate(['viewPost', postId]);
   }
 }

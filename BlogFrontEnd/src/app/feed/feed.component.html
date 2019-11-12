@@ -66,7 +66,19 @@
               </div>
               <hr>
               <p class="pb-3">{{blog.content}}</p>
+                <hr>
+                <div class="mt-2 d-flex">
+                  <div>
+                    <textarea class="bg-light" cols="110" id="comment" name="comment" placeholder="Post comment here." [(ngModel)]="userComment.comment"></textarea>
+                  </div>
+                  <div class="ml-auto">
+                    <button class="btn btn-secondary" (click)="postComment(userComment.comment, blog)">Post</button>
+                  </div>
+                </div>
+                <small><a (click)="viewPost(blog.postId)">View Comments</a></small>
               </div>
+
+
           </div>
         </div>
 

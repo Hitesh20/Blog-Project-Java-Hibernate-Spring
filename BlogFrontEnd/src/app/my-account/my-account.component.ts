@@ -4,6 +4,9 @@ import {BlogService} from '../blog.service';
 import {AuthenticationService} from '../authentication.service';
 import {RegistrationService} from '../registration.service';
 import {User} from '../User';
+import {UserComment} from '../UserComment';
+import {Blog} from '../Blog';
+import {CommentService} from '../comment.service';
 
 @Component({
   selector: 'app-my-account',
@@ -12,9 +15,17 @@ import {User} from '../User';
 })
 export class MyAccountComponent implements OnInit {
 
+  // tslint:disable-next-line:new-parens
+  private userComment: UserComment = new class implements UserComment {
+    id: number;
+    user: User;
+    blog: Blog;
+    comment: string;
+    date: Date;
+  };
   constructor(private blogService: BlogService, private router: Router,
               private route: ActivatedRoute, private loginService: AuthenticationService,
-              private registrationService: RegistrationService) { }
+              private registrationService: RegistrationService, private commentService: CommentService) { }
 
   private blogs;
   private role;
@@ -50,5 +61,27 @@ export class MyAccountComponent implements OnInit {
 
   seeFollowing() {
     this.router.navigate(['connections/following']);
+  }
+
+  postComment(commentt, blog) {
+    console.log(commentt);
+    // tslint:disable-next-line:triple-equals
+    if (commentt != null && commentt != '') {
+      this.userComment.comment = commentt;
+      this.userComment.date = new Date();
+      this.userComment.blog = blog;
+      console.log(this.userComment);
+      this.commentService.addComment(this.userComment).subscribe(data => {
+        alert('New Comment Added Successfully');
+        this.router.navigate(['viewPost', blog.postId]);
+      });
+    } else {
+      alert('Please add a valid comment.');
+    }
+
+  }
+
+  viewPost(postId) {
+    this.router.navigate(['viewPost', postId]);
   }
 }

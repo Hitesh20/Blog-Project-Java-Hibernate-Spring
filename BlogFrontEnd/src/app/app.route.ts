@@ -14,6 +14,7 @@ import {ViewProfileComponent} from './view-profile/view-profile.component';
 import {ConnectionsComponent} from './connections/connections.component';
 import {FollowersComponent} from './followers/followers.component';
 import {FollowingComponent} from './following/following.component';
+import {BlogComponent} from './blog/blog.component';
 
 export const MAIN_ROUTES: Routes = [
   { path : '', redirectTo: '/home/login', pathMatch: 'full'},
@@ -27,6 +28,7 @@ export const MAIN_ROUTES: Routes = [
   },
   { path : 'feed', component: FeedComponent, canActivate: [AuthGuardService] },
   { path : 'addPost', component: AddPostComponent, canActivate: [AuthGuardService] },
+  { path : 'viewPost/:id', component: BlogComponent, canActivate: [AuthGuardService] },
   { path : 'editPost/:id', component: EditPostComponent, canActivate: [AuthGuardService] },
   { path : 'myAccount', component: MyAccountComponent, canActivate: [AuthGuardService] },
   { path : 'editProfile', component: EditProfileComponent, canActivate: [AuthGuardService] },

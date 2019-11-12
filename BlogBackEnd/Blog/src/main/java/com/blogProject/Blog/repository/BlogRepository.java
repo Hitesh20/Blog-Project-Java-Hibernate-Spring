@@ -12,6 +12,9 @@ import java.util.List;
 public interface BlogRepository extends JpaRepository<Blog, Long> {
 
     List<Blog> findAllByUserId(User user);
+
     String deleteByPostId(Long id);
+
     Blog getBlogByPostId(Long id);
+
 }
