@@ -58,11 +58,9 @@ public class FollowFollowingService {
         if(followingRepository.findAllByCurrentUserAndFollowing(loggedInUser, viewingUser) != null) {
             Following following = (Following) followingRepository.findAllByCurrentUserAndFollowing(loggedInUser, viewingUser);
             followingRepository.delete(following);
-            System.out.println("following");
         }
 
         if(followersRepository.findAllByCurrentUserAndFollower(viewingUser, loggedInUser) != null) {
-            System.out.println("follower");
             Followers followers = (Followers) followersRepository.findAllByCurrentUserAndFollower(viewingUser, loggedInUser);
             followersRepository.delete(followers);
         }
@@ -70,7 +68,6 @@ public class FollowFollowingService {
 
     public List<Followers> getFollowersOfThisAccount(Long userId) {
         User currentUser = userRepository.findByUserId(userId);
-        System.out.println(followersRepository.findAllByCurrentUser(currentUser));
         return followersRepository.findAllByCurrentUser(currentUser);
     }
 

@@ -126,4 +126,8 @@ export class FeedComponent implements OnInit {
   viewPost(postId) {
     this.router.navigate(['viewPost', postId]);
   }
+
+  selectFollowers() {
+    this.router.navigate(['selectFollowers']);
+  }
 }

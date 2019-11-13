@@ -49,6 +49,12 @@ public class BlogController {
         return blogService.getBlogList();
     }
 
+    @GetMapping("/makePublic/{id}")
+    public List<Blog> makePublic(@PathVariable Long id) {
+        blogService.makeThisPublic(id);
+        return blogService.getBlogList();
+    }
+
     @GetMapping("/search/{searchedItem}")
     public Set<Blog> searchItem(@PathVariable("searchedItem") String searchedItem) {
         Set<Blog> blog = blogService.getSearchedData(searchedItem);

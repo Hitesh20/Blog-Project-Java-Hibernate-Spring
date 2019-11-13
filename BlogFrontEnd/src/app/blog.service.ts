@@ -44,6 +44,10 @@ export class BlogService {
     const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')});
     return this.http.get(this.url + '/makePrivate/' + id, {headers});
   }
+  makeBlogPublic(id) {
+    const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')});
+    return this.http.get(this.url + '/makePublic/' + id, {headers});
+  }
 
   getSearchedResult(searchedItem) {
     const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')});
@@ -54,4 +58,5 @@ export class BlogService {
     const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')});
     return this.http.get(this.url + '/viewBlogs/' + id, {headers});
   }
+
 }

@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+<form action="create-group" class="was-validated">
+
+
+  <div class="form-group">
+    <label class="font-weight-bold" for="title">Add Name for your group</label>
+    <input type="text" class="form-control" id="title" placeholder="Enter Group Name" name="groupName" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+</form>
+</div>
+<h1 class="text-center text-black-50">Your Followers</h1>
+
+<p class="text-center">Add people among your followers to show them your hidden blogs.</p>
+<div class="container">
+<div class="row m-1" >
+  <div class="col-sm-12 bg-white mb-2 p-3" *ngFor="let follow of followers" style="padding-right: 70px; padding-left: 70px;">
+    <div class="d-flex">
+      <div>
+        <div>
+          <b><i class="fa p-1 mr-3">&#xf007;&nbsp;</i>{{follow.follower.name}}</b>
+        </div>
+        <small>{{follow.follower.email}}</small>
+      </div>
+      <div class="ml-auto">
+        <button class="btn btn-outline-primary btn-sm" (click)="selectProfile(follow.follower.userId)" *ngIf="checkUser(follow.follower.userId)==false; else elseBlock;">Add User</button>
+        <ng-template #elseBlock>
+          <button class="btn btn-outline-primary btn-sm" (click)="removeProfile(follow.follower.userId)">Remove User</button>
+        </ng-template>
+      </div>
+    </div>
+    <hr>
+
+  </div>
+</div>
+  <button class="btn btn-secondary w-100">Create Group</button>
+</div>

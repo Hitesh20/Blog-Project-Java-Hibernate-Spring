@@ -80,13 +80,21 @@
         <div class="col-sm-12">
 
           <div *ngFor="let comment of allComments.slice().reverse()" class="p-3 m-2 bg-white">
-            <div>
+            <div class="d-flex">
+            <div class="mr-auto">
+              <div>
               <b data-toggle="tooltip" title="View User" (click)="viewProfile(comment.user.userId)">
                 <i class="fa p-1 mr-3">&#xf007;&nbsp;</i>
                 {{comment.user.name}}
               </b>
+              </div>
+              <small>{{comment.user.email}}</small>
             </div>
-            <small>{{comment.user.email}}</small>
+            <div class="mr-2">
+              <small><i class="fa p-1">&#xf0ac;&nbsp;</i>{{comment.date | date: 'shortDate'}}</small>
+            </div>
+            </div>
+
             <div class="p-3 m-2 bg-light">
               {{comment.comment}}
             </div>

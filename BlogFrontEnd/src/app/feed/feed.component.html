@@ -10,7 +10,7 @@
           <input class="form-control mr-sm-1 mt-3 mb-3" size="25" type="text" placeholder="Search for any user" [(ngModel)]="searchedItem" [ngModelOptions]="{ standalone:true }">
           <button class="btn btn-secondary text-white" type="submit" (click)="searchOnClick()"><i class="fa">&#xf002;</i>&nbsp;Search</button>
         </form>
-        <a class="btn btn-primary text-white w-100 mb-3"><i class="fa p-1">&#xf0c0;&nbsp;</i>Create Group</a>
+        <a class="btn btn-primary text-white w-100 mb-3" (click)="selectFollowers()"><i class="fa p-1">&#xf0c0;&nbsp;</i>Create Group</a>
         <a class="btn btn-primary text-white w-100 mb-3" (click)="seeFollowers()">Followers</a>
         <a class="btn btn-primary text-white w-100 mb-3" (click)="seeFollowing()">Following</a>
       </div>
@@ -40,8 +40,10 @@
       <div class="row">
         <div class="col-sm-12 mt-3">
 
-            <div *ngFor="let blog of blogs.slice().reverse()">
-              <div class="bg-white m-2 p-3 mb-4" *ngIf="blog.userId.userId == user.userId || checkFollowing(blog.userId.userId)">
+            <div *ngFor="let blog of blogs.slice().reverse(); let i = index">
+
+                <div *ngIf="blog.private==false">
+                  <div class="bg-white m-2 p-3 mb-4" *ngIf="blog.userId.userId == user.userId || checkFollowing(blog.userId.userId)">
               <div class="d-flex">
               <div>
               <div class="font-weight-bold" style="font-size: 20px;">{{blog.title}}</div>
@@ -54,8 +56,10 @@
                   </button>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" (click)="editBlog(blog.postId)">Edit</a>
-                    <!--<a class="dropdown-item" (click)="makePrivate(blog.postId)" *ngIf="blog.isPrivate==false">Make Private</a>
-                    <a class="dropdown-item" href="#" *ngIf="blog.isPrivate==true">Make Public</a>-->
+                    <a class="dropdown-item" *ngIf="blog.private==true; else privateElse;">Make Public</a>
+                    <ng-template #privateElse>
+                      <a class="dropdown-item" (click)="makePrivate(blog.postId)">Make Private</a>
+                    </ng-template>
                     <a class="dropdown-item" (click)="deleteBlog(blog.postId)">Delete</a>
                   </div>
                 </div>
@@ -67,15 +71,16 @@
               <hr>
               <p class="pb-3">{{blog.content}}</p>
                 <hr>
-                <div class="mt-2 d-flex">
+                <!--<div class="mt-2 d-flex">
                   <div>
-                    <textarea class="bg-light" cols="110" id="comment" name="comment" placeholder="Post comment here." [(ngModel)]="userComment.comment"></textarea>
+                    <textarea class="bg-light" cols="110" name="blog.{{i}}.title" ngDefaultControl placeholder="Post comment here." [(ngModel)]="userComment.comment" [ngModelOptions]="{standalone: true}"></textarea>
                   </div>
                   <div class="ml-auto">
                     <button class="btn btn-secondary" (click)="postComment(userComment.comment, blog)">Post</button>
                   </div>
-                </div>
-                <small><a (click)="viewPost(blog.postId)">View Comments</a></small>
+                </div>-->
+                <small><a (click)="viewPost(blog.postId)">View Comments or make Comments</a></small>
+              </div>
               </div>
 
 

@@ -1,9 +1,6 @@
 package com.blogProject.Blog.dao;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 
@@ -14,6 +11,7 @@ public class Blog {
     private Long postId;
     private Date date;
     private String title;
+    @Column(length = 1000)
     private String content;
     private Boolean isPrivate = false;
     @OneToOne

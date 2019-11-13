@@ -29,10 +29,8 @@ public class FollowFollowingController {
     public String isFollowing(@PathVariable Long userId, Principal principal)
     {
         if(ffService.checkFollowing(userService.getUserId(principal), userId)){
-            System.out.println("True");
             return "\"true\"";
         } else {
-            System.out.println("False");
             return "\"false\"";
         }
     }

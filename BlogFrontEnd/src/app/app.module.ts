@@ -21,6 +21,7 @@ import { FollowersComponent } from './followers/followers.component';
 import { FollowingComponent } from './following/following.component';
 import { ConnectionsComponent } from './connections/connections.component';
 import { BlogComponent } from './blog/blog.component';
+import { SelectFollowersComponent } from './select-followers/select-followers.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BlogComponent } from './blog/blog.component';
     FollowersComponent,
     FollowingComponent,
     ConnectionsComponent,
-    BlogComponent
+    BlogComponent,
+    SelectFollowersComponent
   ],
   imports: [
     BrowserModule,

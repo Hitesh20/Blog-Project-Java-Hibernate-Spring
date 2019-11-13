@@ -65,6 +65,13 @@ public class BlogService {
         blogRepository.saveAndFlush(oldBlog);
     }
 
+    public void makeThisPublic(Long id) {
+        Blog oldBlog = blogRepository.getBlogByPostId(id);
+        oldBlog.setPostId(id);
+        oldBlog.setPrivate(false);
+        blogRepository.saveAndFlush(oldBlog);
+    }
+
     public Set<Blog> getSearchedData(String searchedItem) {
         List<Blog> blogsList = blogRepository.findAll();
         Set<Blog> result = new HashSet<>();
@@ -84,4 +91,6 @@ public class BlogService {
         User viewUser = userRepository.findByUserId(userId);
         return blogRepository.findAllByUserId(viewUser);
     }
+
+
 }

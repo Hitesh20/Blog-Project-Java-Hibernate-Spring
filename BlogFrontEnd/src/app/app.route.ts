@@ -15,6 +15,7 @@ import {ConnectionsComponent} from './connections/connections.component';
 import {FollowersComponent} from './followers/followers.component';
 import {FollowingComponent} from './following/following.component';
 import {BlogComponent} from './blog/blog.component';
+import {SelectFollowersComponent} from './select-followers/select-followers.component';
 
 export const MAIN_ROUTES: Routes = [
   { path : '', redirectTo: '/home/login', pathMatch: 'full'},
@@ -40,6 +41,7 @@ export const MAIN_ROUTES: Routes = [
       { path: 'following', component: FollowingComponent, canActivate: [AuthGuardService] }
     ],
     canActivate: [AuthGuardService]},
+  { path : 'selectFollowers', component: SelectFollowersComponent, canActivate: [AuthGuardService] },
   { path : 'logout', component: LogoutComponent},
   { path : '**', component: PageNotFoundComponent}
 ];

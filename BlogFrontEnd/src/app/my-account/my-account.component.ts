@@ -84,4 +84,18 @@ export class MyAccountComponent implements OnInit {
   viewPost(postId) {
     this.router.navigate(['viewPost', postId]);
   }
+
+  makePrivate(id) {
+    this.blogService.makeBlogPrivate(id).subscribe(data => {
+      this.blogs = data;
+      alert('Blog made private successfully. Your followers now can not see this blog on their home page.');
+    });
+  }
+
+  makePublic(id) {
+    this.blogService.makeBlogPublic(id).subscribe(data => {
+      this.blogs = data;
+      alert('Blog made public successfully. Your followers now can see this blog on their home page.');
+    });
+  }
 }

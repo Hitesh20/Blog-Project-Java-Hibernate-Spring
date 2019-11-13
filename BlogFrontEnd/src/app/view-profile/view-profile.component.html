@@ -19,7 +19,7 @@
             <b><i class="fa p-1">&#xf228;&nbsp;</i>Gender</b><br>
             <i class="fas fa-book-dead"></i><span class="ml-3">{{viewUser.gender}}</span><br><br>
             <b><i class="fa p-1">&#xf044;&nbsp;</i>Number of Posts</b><br>
-            <i class="fas fa-book-dead"></i><span class="ml-3">{{viewBlogs.length}}</span><br><br>
+            <i class="fas fa-book-dead"></i><span class="ml-3">{{viewBlogs.lengthl}}</span><br><br>
           </div>
         </div>
       </div>
@@ -32,7 +32,10 @@
       <div class="row">
         <div class="col-sm-12 mt-3" *ngIf="isFollowing || role=='admin'">
 
-          <div class="bg-white m-2 p-3 mb-4" *ngFor="let blog of viewBlogs.reverse()">
+          <div *ngFor="let blog of viewBlogs.reverse()">
+            <div *ngIf="blog.private==false || role=='admin'">
+              <div class="bg-white m-2 p-3 mb-4">
+
             <div class="d-flex">
               <div>
                 <div class="font-weight-bold" style="font-size: 20px;">{{blog.title}}</div>
@@ -45,6 +48,10 @@
                   </button>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" (click)="editBlog(blog.postId)">Edit</a>
+                    <a class="dropdown-item" *ngIf="blog.private==true; else privateElse;" (click)="makePublic(blog.postId)">Make Public</a>
+                    <ng-template #privateElse>
+                      <a class="dropdown-item" (click)="makePrivate(blog.postId)">Make Private</a>
+                    </ng-template>
                     <a class="dropdown-item" (click)="deleteBlog(blog.postId)">Delete</a>
                   </div>
                 </div>
@@ -65,7 +72,8 @@
               </div>
             </div>
             <small><a (click)="viewPost(blog.postId)">View Comments</a></small>
-
+            </div>
+            </div>
 
           </div>
         </div>

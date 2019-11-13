@@ -30,6 +30,7 @@ export class ViewProfileComponent implements OnInit {
   private isFollowing = false;
   private user;
   private role;
+  private privateBlogs = 0;
   constructor(private route: ActivatedRoute, private registrationService: RegistrationService,
               private blogService: BlogService, private ffService: FollowerFollowingService, private router: Router,
               private commentService: CommentService) { }
@@ -42,6 +43,14 @@ export class ViewProfileComponent implements OnInit {
     });
     this.registrationService.viewUser(this.userId).subscribe(data => this.viewUser = data);
     this.blogService.viewPost(this.userId).subscribe(data => this.viewBlogs = data);
+    // tslint:disable-next-line:prefer-for-of
+    /*for (let i = 0; i < this.viewBlogs.length; i++) {
+      // tslint:disable-next-line:triple-equals
+      if (this.viewBlogs[i].private == true) {
+        this.privateBlogs++;
+      }
+    }
+    console.log(this.privateBlogs);*/
     this.ffService.checkIfCurrentUserIsFollower(this.userId).subscribe(data => {
       // tslint:disable-next-line:triple-equals
       if (data === 'true') {
@@ -98,5 +107,19 @@ export class ViewProfileComponent implements OnInit {
 
   viewPost(postId) {
     this.router.navigate(['viewPost', postId]);
+  }
+
+  makePrivate(id) {
+    this.blogService.makeBlogPrivate(id).subscribe(data => {
+      this.viewBlogs = data;
+      alert('Blog made private successfully. Your followers now can not see this blog on their home page.');
+    });
+  }
+
+  makePublic(id) {
+    this.blogService.makeBlogPublic(id).subscribe(data => {
+      this.viewBlogs = data;
+      alert('Blog made public successfully. Your followers now can see this blog on their home page.');
+    });
   }
 }
